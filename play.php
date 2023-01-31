@@ -14,6 +14,39 @@ class Ship
     public function getName(){
         return $this->name;
     }
+
+    public function getNameAndSpecs($useShortFormat){
+        if($useShortFormat){
+            return sprintf(
+                '%s: %s/%s/%s',
+                $this->name,
+                $this->weaponPower,
+                $this->jediFactor,
+                $this->strength
+            );
+        }else{
+            return sprintf(
+                '%s: w:%s, j:%s, s:%s',
+                $this->name,
+                $this->weaponPower,
+                $this->jediFactor,
+                $this->strength
+            );
+        }
+    }
+}
+
+function printShipSummary($someShip){
+    echo 'ship name:' . $someShip->name;
+    echo '<hr/>';
+    $someShip->sayHello();
+    echo '<hr/>';
+    echo $someShip->getName();
+    var_dump($someShip->weaponPower);
+    echo '<hr/>';
+    echo $someShip->getNameAndSpecs(false);
+    echo '<hr/>';
+    echo $someShip->getNameAndSpecs(true);
 }
 
 //instantiating a new object from the Ship class
@@ -21,9 +54,11 @@ $myShip = new Ship();
 $myShip->name = 'Jedi Starship';
 $myShip->weaponPower = 10;
 
-echo 'ship name:' . $myShip->name;
+$otherShip = new Ship();
+$otherShip->name = 'Imperial Shuttle';
+$otherShip->weaponPower = 5;
+$otherShip->strength = 50;
+
+printShipSummary($myShip);
 echo '<hr/>';
-$myShip->sayHello();
-echo '<hr/>';
-echo $myShip->getName();
-var_dump($myShip->weaponPower);
+printShipSummary($otherShip);
