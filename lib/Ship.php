@@ -12,7 +12,8 @@ class Ship
 
     private $underRepair;
     //this is a constructor. will run when a Ship object is created. must be named __construct
-    public function __construct(){
+    public function __construct($name){
+        $this->name = $name;
         //ship has 30% chance to be broken
         $this->underRepair = mt_rand(1, 100) < 30;
     }
