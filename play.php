@@ -1,44 +1,5 @@
 <?php
-//a class defines all the properties an object might have. The Ship class is not a ship, but defines properties one might have
-class Ship
-{
-    public $name;
-    //can set default value. in this case, the default value is 0 ($weaponPower = 0)
-    public $weaponPower = 0;
-    public $jediFactor = 0;
-    public $strength = 0;
-    //a method is basically a function that lives inside a class. (like $Spider->read_url)
-    public function sayHello(){
-        echo'hello';
-    }
-    public function getName(){
-        return $this->name;
-    }
-
-    public function getNameAndSpecs($useShortFormat){
-        if($useShortFormat){
-            return sprintf(
-                '%s: %s/%s/%s',
-                $this->name,
-                $this->weaponPower,
-                $this->jediFactor,
-                $this->strength
-            );
-        }else{
-            return sprintf(
-                '%s: w:%s, j:%s, s:%s',
-                $this->name,
-                $this->weaponPower,
-                $this->jediFactor,
-                $this->strength
-            );
-        }
-    }
-
-    public function doesGivenShipHaveMoreStrength($givenShip){
-        return $givenShip->strength > $this->strength;
-    }
-}
+require_once __DIR__.'/lib/Ship.php';
 
 function printShipSummary($someShip){
     echo 'ship name:' . $someShip->name;
