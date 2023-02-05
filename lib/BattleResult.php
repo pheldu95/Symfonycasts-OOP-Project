@@ -8,7 +8,8 @@ class BattleResult
 
     private $losingShip;
 
-    public function __construct($usedJediPowers, Ship $winningShip, Ship $losingShip){
+    //adding "= null" for the arguments means the argument is optional. so if it comes in as null, it won't throw an error. this would happen if the ships tie, both destroying each other
+    public function __construct($usedJediPowers, Ship $winningShip = null, Ship $losingShip = null){
         $this->usedJediPowers = $usedJediPowers;
         $this->winningShip = $winningShip;
         $this->losingShip = $losingShip;
@@ -25,7 +26,7 @@ class BattleResult
     }
 
     /**
-     * @return Ship
+     * @return Ship|null
      */
     public function getWinningShip(): Ship
     {
@@ -33,11 +34,14 @@ class BattleResult
     }
 
     /**
-     * @return Ship
+     * @return Ship|null
      */
     public function getLosingShip(): Ship
     {
         return $this->losingShip;
     }
 
+    public function isThereAWinner(){
+        return $this->getWinningShip() !== null;
+    }
 }
