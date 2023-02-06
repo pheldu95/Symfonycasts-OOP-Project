@@ -4,15 +4,9 @@ class ShipLoader
 {
     private $pdo;
 
-    private $dbDsn;
-    private $dbUser;
-    private $dbPass;
-
-    //anytime anyone uses ShipLoader, the user has to pass these configurations ($dbDsn, $dbUser, $dbPass)
-    public function __construct($dbDsn, $dbUser, $dbPass){
-        $this->dbDsn = $dbDsn;
-        $this->dbUser = $dbUser;
-        $this->dbPass = $dbPass;
+    //anytime anyone uses ShipLoader, the user has to pass their pdo object
+    public function __construct(PDO $pdo){
+        $this->pdo = $pdo;
     }
     /**
      * @return Ship[]
@@ -69,14 +63,6 @@ class ShipLoader
      * @return PDO
      */
     private function getPDO(){
-        //if someone calles this function multiple times, it won't make a second pdo object if one already exists
-        if($this->pdo === null){
-            $pdo = new PDO($this->dbDsn, $this->dbUser, $this->dbPass);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            $this->pdo = $pdo;
-        }
-
         return $this->pdo;
     }
 }
