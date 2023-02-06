@@ -3,6 +3,7 @@
 
 class Ship
 {
+    private $id;
     //public means you can access the property anywhere. private means it can only be accessed inside the class
     private $name;
     //can set default value. in this case, the default value is 0 ($weaponPower = 0)
@@ -104,5 +105,21 @@ class Ship
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param integer $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 }
