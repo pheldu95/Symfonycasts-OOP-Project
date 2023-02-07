@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__.'/lib/Ship.php';
-require_once __DIR__.'/lib/BattleManager.php';
-require_once __DIR__.'/lib/ShipLoader.php';
-require_once __DIR__.'/lib/BattleResult.php';
-require_once __DIR__.'/lib/Container.php';
+require_once __DIR__.'/lib/Model/Ship.php';
+require_once __DIR__.'/lib/Service/BattleManager.php';
+require_once __DIR__.'/lib/Service/ShipLoader.php';
+require_once __DIR__.'/lib/Model/BattleResult.php';
+require_once __DIR__.'/lib/Service/Container.php';
 
 //all our database credentials. need them in index.php so we can pass them to ShipLoader
 $configuration = array(
