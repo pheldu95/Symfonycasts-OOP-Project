@@ -5,6 +5,7 @@ class Ship
 {
     private $id;
     //public means you can access the property anywhere. private means it can only be accessed inside the class
+    //protected is the same as private, except subclasses, like RebelShip, can still access it
     private $name;
     //can set default value. in this case, the default value is 0 ($weaponPower = 0)
     private $weaponPower = 0;
