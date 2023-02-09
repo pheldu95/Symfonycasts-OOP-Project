@@ -3,7 +3,7 @@
 //this will be the most abstract version of a ship class
 //meaning it will hold methods and variables and stuff that both Ship and RebelShip need.
 //Ship and RebelShip will both extend this class. Instead of RebelShip extending Ship and inheriting stuff that it doesn't need
-class AbstractShip
+abstract class AbstractShip
 {
     private $id;
     //public means you can access the property anywhere. private means it can only be accessed inside the class
@@ -13,6 +13,13 @@ class AbstractShip
     private $weaponPower = 0;
 
     private $strength = 0;
+
+    //forces any class that extends this class to have this method
+    //we need this because Ship and RebelShip both have getJediFactor, but AbstractShip doesn't
+    //so we want to see an error if we add a new AbstractShip extended class that doesn't have a function called getJediFactor
+    abstract public function getJediFactor();
+    abstract public function getType();
+    abstract public function isFunctional();
 
     //this is a constructor. will run when a Ship object is created. must be named __construct
     public function __construct($name){
