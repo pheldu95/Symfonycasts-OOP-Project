@@ -1,7 +1,7 @@
 <?php
 
 //extends means that everything in the Ship class is also now automatically in the RebelShip class
-class RebelShip extends Ship
+class RebelShip extends AbstractShip
 {
     public function getFavoriteJedi(){
         $coolJedis = array('Yoda', 'Ben Kenobi');
@@ -26,5 +26,11 @@ class RebelShip extends Ship
         $val .= ' (Rebel)';
 
         return $val;
+    }
+
+    //the jedi power of rebel ships will change randomly
+    public function getJediFactor(): int
+    {
+        return rand(10, 30);
     }
 }
