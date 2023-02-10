@@ -5,7 +5,7 @@ class ShipLoader
     private $shipStorage;
 
     //anytime anyone uses ShipLoader, the user has to pass their pdo object
-    public function __construct(AbstractShipStorage $shipStorage){
+    public function __construct(ShipStorageInterface $shipStorage){
         $this->shipStorage = $shipStorage;
     }
     /**
