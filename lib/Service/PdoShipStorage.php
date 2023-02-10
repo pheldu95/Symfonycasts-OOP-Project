@@ -1,6 +1,6 @@
 <?php
 
-class PdoShipStorage
+class PdoShipStorage extends AbstractShipStorage
 {
     //dependency injection
     public function __construct(PDO $pdo){
@@ -16,7 +16,7 @@ class PdoShipStorage
         return $shipsArray;
     }
 
-    public function fetchSingleShipData(){
+    public function fetchSingleShipData($id){
         $pdo = $this->pdo;
         $statement = $pdo->prepare('SELECT * FROM ship WHERE id = :id');
         $statement->execute(array('id'=>$id));
